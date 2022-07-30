@@ -9,3 +9,62 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Companies {
+  id Int @id @default(autoincrement())
+  name String @unique
+  Users Users[]
+  Balance Balance[]
+  Branches Branches[]
+}
+
+model Users {
+  id Int @id @default(autoincrement())
+  name String
+  email String @unique
+  password String
+  companyId Int
+  clearanceLevel Int?
+  salary Int?
+  Company Companies @relation(fields: [companyId], references: [id])
+  Session Sessions[]
+}
+
+model Sessions {
+  id Int @id @default(autoincrement())
+  userId Int @unique
+  token String
+  User Users @relation(fields: [userId], references: [id])
+}
+
+model Balance {
+  id Int @id @default(autoincrement())
+  balance Int
+  companyId Int @unique
+  Company Companies @relation(fields: [companyId], references: [id])
+}
+
+model Branches {
+  id Int @id @default(autoincrement())
+  name String
+  companyId Int
+  Company Companies @relation(fields: [companyId], references: [id])
+  Stock Stock[]
+}
+
+model Stock {
+  id Int @id @default(autoincrement())
+  productName String
+  productQuantity Int
+  productPrice Int
+  branchId Int
+  Branch Branches @relation(fields: [branchId], references: [id])
+  Sales Sales[]
+}
+
+model Sales {
+  id Int @id @default(autoincrement())
+  quantity Int
+  productId Int
+  Stock Stock @relation(fields: [productId], references: [id])
+}
