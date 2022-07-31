@@ -7,11 +7,7 @@ async function createBalance(data) {
 }
 
 async function changeBalance(companyId, value) {
-  const oldBalance = await prisma.balance.findUnique({
-    where: {
-      companyId: companyId
-    }
-  })
+  const oldBalance = await getCompanyBalance(companyId)
 
   const newBalance = oldBalance.balance + value
 
