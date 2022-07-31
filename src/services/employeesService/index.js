@@ -1,7 +1,7 @@
 import balanceRepository from "../../repositories/balanceRepository";
 import companyRepository from "../../repositories/companyRepository";
 import userRepository from "../../repositories/userRepository";
-import { notFoundError } from "./errors";
+import { companyNotFoundError } from "./errors";
 
 async function getCompanyEmployees(companyId) {
   await getCompanyOrFail(companyId)
@@ -30,12 +30,13 @@ async function payEmployees(companyId) {
 async function getCompanyOrFail(companyId) {
   const company = await companyRepository.findCompanyById(companyId)
   if(!company) {
-    throw notFoundError()
+    throw companyNotFoundError()
   }
 }
 
 export default {
   getCompanyEmployees,
   getCompanyPayRoll,
-  payEmployees
+  payEmployees,
+  getCompanyOrFail
 }

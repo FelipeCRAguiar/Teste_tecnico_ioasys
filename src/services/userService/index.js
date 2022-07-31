@@ -1,9 +1,10 @@
 import userRepository from "../../repositories/userRepository";
-import { duplicatedEmailError, invalidCredentialsError, notFoundError } from "./error";
+import { duplicatedEmailError, invalidCredentialsError, userNotFoundError } from "./errors";
 import bcrypt from 'bcrypt'
 import sessionRepository from "../../repositories/sessionRepository";
 import jwt from 'jsonwebtoken';
 import dotenv from "dotenv";
+import employeesService from "../employeesService";
 
 dotenv.config()
 
@@ -19,6 +20,7 @@ async function createUser({email, password}) {
 
 async function hireUser(userId, companyId, salary) {
   await findUserById(userId)
+  await employeesService.getCompanyOrFail(companyId)
 
   await userRepository.hire(userId, companyId, salary)
 }
@@ -75,7 +77,7 @@ async function createSession(userId) {
 async function findUserById(userId) {
   const user = await userRepository.findById(userId)
   if(!user) {
-    throw notFoundError()
+    throw userNotFoundError()
   }
 
   return user

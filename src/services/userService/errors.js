@@ -12,7 +12,7 @@ export function invalidCredentialsError(){
   };
 }
 
-export function notFoundError() {
+export function userNotFoundError() {
   return {
     name: 'NotFoundError',
     message: 'This user does not exist'
