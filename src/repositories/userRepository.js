@@ -57,11 +57,20 @@ async function getCompanyPayroll(companyId) {
   })
 }
 
+async function findById(userId) {
+  return prisma.users.findUnique({
+    where: {
+      id: userId
+    }
+  })
+}
+
 export default {
   createUser,
   findUserByEmail,
   hire,
   fire,
   getCompanyEmployees,
-  getCompanyPayroll
+  getCompanyPayroll,
+  findById
 }

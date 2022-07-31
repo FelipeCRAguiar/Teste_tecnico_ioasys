@@ -1,7 +1,6 @@
-import { ApplicationError } from '@/protocols';
 import httpStatus from 'http-status';
 
-export function handleApplicationErrors(
+export default function handleApplicationErrors(
   err,
   _req,
   res,
