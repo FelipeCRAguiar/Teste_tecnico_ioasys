@@ -10,6 +10,15 @@ async function createCompany(name) {
   return company
 }
 
+async function findCompanyByName(name) {
+  return prisma.companies.findUnique({
+    where: {
+      name: name
+    }
+  })
+}
+
 export default {
-  createCompany
+  createCompany,
+  findCompanyByName
 }

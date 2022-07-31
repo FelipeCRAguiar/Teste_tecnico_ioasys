@@ -39,7 +39,7 @@ model Sessions {
 
 model Balance {
   id Int @id @default(autoincrement())
-  balance Int
+  balance Int @default(0)
   companyId Int @unique
   Company Companies @relation(fields: [companyId], references: [id])
 }
