@@ -2,6 +2,7 @@ import httpStatus from 'http-status';
 import * as jwt from 'jsonwebtoken';
 //import { unauthorizedError } from '@/errors';
 import { prisma } from '../db';
+import userService from '../services/userService';
 
 export async function authenticateToken(req, res, next) {
   const authHeader = req.header('Authorization');
@@ -20,7 +21,10 @@ export async function authenticateToken(req, res, next) {
     });
     if (!session) return generateUnauthorizedResponse(res);
 
+    const user = await userService.findUserById(userId)
+
     req.userId = userId;
+    res.locals.user = user
 
     return next();
   } catch (err) {

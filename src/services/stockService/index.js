@@ -64,6 +64,8 @@ async function getProductOrFail(productId) {
   if(!product) {
     throw productNotFoundError()
   }
+
+  return product
 }
 
 export default {
