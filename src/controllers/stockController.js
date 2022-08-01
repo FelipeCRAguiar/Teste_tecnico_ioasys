@@ -43,7 +43,7 @@ async function findProductsByBranch(req, res) {
 }
 
 async function findProductsByName(req, res) {
-  const { name, companyId} = req.params
+  const { name, companyId } = req.params
 
   const products = await stockService.findProductsByName(name, parseInt(companyId))
 
