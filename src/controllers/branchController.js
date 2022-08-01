@@ -1,5 +1,5 @@
 import httpStatus from "http-status"
-import branchService from "../services/branchService"
+import branchService from "../services/branchService/index.js"
 
 async function createBranch(req, res) {
   const branch = req.body

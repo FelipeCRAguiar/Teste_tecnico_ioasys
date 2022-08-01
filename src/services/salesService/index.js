@@ -1,7 +1,7 @@
-import balanceRepository from "../../repositories/balanceRepository";
-import branchRepository from "../../repositories/branchRepository";
-import salesRepository from "../../repositories/salesRepository";
-import stockService from "../stockService";
+import balanceRepository from "../../repositories/balanceRepository.js";
+import branchRepository from "../../repositories/branchRepository.js";
+import salesRepository from "../../repositories/salesRepository.js";
+import stockService from "../stockService/index.js";
 
 async function postSale(productList) {
   for(let i = 0; i < productList.length; i++) {

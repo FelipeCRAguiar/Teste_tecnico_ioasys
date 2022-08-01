@@ -1,4 +1,4 @@
-import { prisma } from "../db";
+import { prisma } from "../db.js";
 
 async function createBalance(data) {
   await prisma.balance.create({

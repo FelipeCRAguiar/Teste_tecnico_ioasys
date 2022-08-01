@@ -5,7 +5,6 @@ import handleApplicationErrors from "./middlewares/errorHandlingMiddleware.js";
 import branchRouter from "./routers/branchRouter.js";
 import companyRouter from "./routers/companyRouter.js";
 import employeeRouter from "./routers/employeeRouter.js";
-import router from "./routers/index.js";
 import salesRouter from "./routers/salesRouter.js";
 import stockRouter from "./routers/stockRouter.js";
 import userRouter from "./routers/userRouter.js";

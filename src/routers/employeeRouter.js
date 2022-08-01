@@ -1,6 +1,6 @@
 import { Router } from "express";
-import employeesController from "../controllers/employeesController";
-import { authenticateToken } from "../middlewares/authenticationMiddleware";
+import employeesController from "../controllers/employeesController.js";
+import { authenticateToken } from "../middlewares/authenticationMiddleware.js";
 
 const employeeRouter = Router()
 

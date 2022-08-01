@@ -1,7 +1,7 @@
-import balanceRepository from "../../repositories/balanceRepository";
-import companyRepository from "../../repositories/companyRepository";
-import userRepository from "../../repositories/userRepository";
-import { companyNotFoundError } from "./errors";
+import balanceRepository from "../../repositories/balanceRepository.js";
+import companyRepository from "../../repositories/companyRepository.js";
+import userRepository from "../../repositories/userRepository.js";
+import { companyNotFoundError } from "./errors.js";
 
 async function getCompanyEmployees(companyId) {
   await getCompanyOrFail(companyId)

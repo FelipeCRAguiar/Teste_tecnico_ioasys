@@ -1,7 +1,7 @@
-import branchRepository from "../../repositories/branchRepository";
-import stockRepository from "../../repositories/stockRepository";
-import employeesService from "../employeesService";
-import { branchNotFoundError, productNotFoundError } from "./errors";
+import branchRepository from "../../repositories/branchRepository.js";
+import stockRepository from "../../repositories/stockRepository.js";
+import employeesService from "../employeesService/index.js";
+import { branchNotFoundError, productNotFoundError } from "./errors.js";
 
 async function createProduct(data) {
   await getBranchOrFail(data.branchId)

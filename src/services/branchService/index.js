@@ -1,5 +1,5 @@
-import branchRepository from "../../repositories/branchRepository";
-import { unauthorizedError } from "./errors";
+import branchRepository from "../../repositories/branchRepository.js";
+import { unauthorizedError } from "./errors.js";
 
 async function createBranch(name, companyId) {
   await branchRepository.createBranch({

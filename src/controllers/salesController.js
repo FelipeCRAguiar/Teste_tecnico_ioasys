@@ -1,5 +1,5 @@
 import httpStatus from "http-status"
-import salesService from "../services/salesService"
+import salesService from "../services/salesService/index.js"
 
 async function postSales(req, res) {
   const { saleList } = req.body

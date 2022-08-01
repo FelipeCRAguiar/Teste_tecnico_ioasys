@@ -1,5 +1,5 @@
 import httpStatus from "http-status"
-import companyService from "../services/companyService"
+import companyService from "../services/companyService/index.js"
 
 async function createCompany(req, res) {
   const company = req.body

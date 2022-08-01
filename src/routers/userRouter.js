@@ -1,8 +1,8 @@
 import { Router } from "express";
-import userController from "../controllers/userController";
-import { validateSchemaMiddleware } from "../middlewares/validateSchemaMiddleware";
-import { hireUserSchema } from "../schemas/hireUserSchema";
-import { userSchema } from "../schemas/userSchema";
+import userController from "../controllers/userController.js";
+import { validateSchemaMiddleware } from "../middlewares/validateSchemaMiddleware.js";
+import { hireUserSchema } from "../schemas/hireUserSchema.js";
+import { userSchema } from "../schemas/userSchema.js";
 
 const userRouter = Router()
 

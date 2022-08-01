@@ -1,4 +1,4 @@
-import { prisma } from "../db";
+import { prisma } from "../db.js";
 
 async function createCompany(name) {
   const company =  await prisma.companies.create({

@@ -1,7 +1,7 @@
 import httpStatus from 'http-status';
 import * as jwt from 'jsonwebtoken';
-import { prisma } from '../db';
-import userService from '../services/userService';
+import { prisma } from '../db.js';
+import userService from '../services/userService/index.js';
 
 export async function authenticateToken(req, res, next) {
   const authHeader = req.header('Authorization');

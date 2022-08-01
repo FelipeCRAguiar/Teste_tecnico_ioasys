@@ -1,5 +1,5 @@
 import httpStatus from "http-status"
-import employeesService from "../services/employeesService"
+import employeesService from "../services/employeesService/index.js"
 
 async function payEmployees(req, res) {
   const { companyId } = req.params

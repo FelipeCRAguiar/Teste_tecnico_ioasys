@@ -1,8 +1,8 @@
 import { Router } from "express";
-import salesController from "../controllers/salesController";
-import { authenticateToken } from "../middlewares/authenticationMiddleware";
-import { validateSchemaMiddleware } from "../middlewares/validateSchemaMiddleware";
-import { saleSchema } from "../schemas/salesSchema";
+import salesController from "../controllers/salesController.js";
+import { authenticateToken } from "../middlewares/authenticationMiddleware.js";
+import { validateSchemaMiddleware } from "../middlewares/validateSchemaMiddleware.js";
+import { saleSchema } from "../schemas/salesSchema.js";
 
 const salesRouter = Router()
 

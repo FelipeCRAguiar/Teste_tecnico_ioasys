@@ -1,10 +1,10 @@
-import userRepository from "../../repositories/userRepository";
-import { duplicatedEmailError, invalidCredentialsError, userNotFoundError } from "./errors";
+import userRepository from "../../repositories/userRepository.js";
+import { duplicatedEmailError, invalidCredentialsError, userNotFoundError } from "./errors.js";
 import bcrypt from 'bcrypt'
-import sessionRepository from "../../repositories/sessionRepository";
+import sessionRepository from "../../repositories/sessionRepository.js";
 import jwt from 'jsonwebtoken';
 import dotenv from "dotenv";
-import employeesService from "../employeesService";
+import employeesService from "../employeesService/index.js";
 
 dotenv.config()
 

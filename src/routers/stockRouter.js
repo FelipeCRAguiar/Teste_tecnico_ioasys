@@ -1,10 +1,10 @@
 import { Router } from "express";
-import stockController from "../controllers/stockController";
-import { authenticateToken } from "../middlewares/authenticationMiddleware";
-import { validateSchemaMiddleware } from "../middlewares/validateSchemaMiddleware";
-import { productSchema } from "../schemas/productSchema";
-import { updateProductSchema } from "../schemas/updateProductSchema";
-import { updateProductStockSchema } from "../schemas/updateProductStockSchema";
+import stockController from "../controllers/stockController.js";
+import { authenticateToken } from "../middlewares/authenticationMiddleware.js";
+import { validateSchemaMiddleware } from "../middlewares/validateSchemaMiddleware.js";
+import { productSchema } from "../schemas/productSchema.js";
+import { updateProductSchema } from "../schemas/updateProductSchema.js";
+import { updateProductStockSchema } from "../schemas/updateProductStockSchema.js";
 
 const stockRouter = Router()
 

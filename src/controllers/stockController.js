@@ -1,5 +1,5 @@
 import httpStatus from "http-status"
-import stockService from "../services/stockService"
+import stockService from "../services/stockService/index.js"
 
 async function createProduct(req, res) {
   const product = req.body

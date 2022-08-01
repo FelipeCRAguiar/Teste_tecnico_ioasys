@@ -1,5 +1,5 @@
 import httpStatus from "http-status"
-import userService from "../services/userService"
+import userService from "../services/userService/index.js"
 
 async function signUp(req, res) {
   const user = req.body
