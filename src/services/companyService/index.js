@@ -1,5 +1,6 @@
 import balanceRepository from "../../repositories/balanceRepository";
 import companyRepository from "../../repositories/companyRepository";
+import employeesService from "../employeesService";
 import userService from "../userService";
 
 async function createCompany(userId, name, salary) {
@@ -10,6 +11,15 @@ async function createCompany(userId, name, salary) {
   await balanceRepository.createBalance({companyId: company.id})
 }
 
+async function getCompanyBalance(companyId) {
+  await employeesService.getCompanyOrFail(companyId)
+
+  const balance = await balanceRepository.getCompanyBalance(companyId)
+
+  return balance
+}
+
 export default {
-  createCompany
+  createCompany,
+  getCompanyBalance
 }
