@@ -1,6 +1,5 @@
 import httpStatus from 'http-status';
 import * as jwt from 'jsonwebtoken';
-//import { unauthorizedError } from '@/errors';
 import { prisma } from '../db';
 import userService from '../services/userService';
 
@@ -34,4 +33,11 @@ export async function authenticateToken(req, res, next) {
 
 function generateUnauthorizedResponse(res) {
   res.status(httpStatus.UNAUTHORIZED).send(unauthorizedError());
+}
+
+function unauthorizedError() {
+  return {
+    name: 'UnauthorizedError',
+    message: 'You must be signed in to continue',
+  };
 }
