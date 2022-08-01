@@ -79,6 +79,14 @@ async function getCompanyProducts(companyId) {
   })
 }
 
+async function findProductById(productId) {
+  return prisma.stock.findUnique({
+    where: {
+      id: productId
+    }
+  })
+}
+
 export default {
   creatProduct,
   updateProduct,
@@ -86,5 +94,6 @@ export default {
   findProductsByName,
   updateProductStock,
   getProductByBranch,
-  getCompanyProducts
+  getCompanyProducts,
+  findProductById
 }

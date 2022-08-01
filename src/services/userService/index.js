@@ -14,7 +14,7 @@ async function createUser({email, password}) {
   const hashedPassword = await bcrypt.hash(password, 10)
   await userRepository.createUser({
     email,
-    hashedPassword
+    password: hashedPassword
   })
 }
 
