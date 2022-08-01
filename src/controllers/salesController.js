@@ -12,7 +12,12 @@ async function postSales(req, res) {
 async function getProductSales(req, res) {
   const { productId } = req.params
 
-  const product = await salesService.getProductSales(productId)
+  const product = await salesService.getProductSales(parseInt(productId))
 
   res.send(product).status(httpStatus.OK)
+}
+
+export default {
+  postSales,
+  getProductSales
 }

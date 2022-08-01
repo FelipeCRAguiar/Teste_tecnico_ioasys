@@ -15,8 +15,8 @@ async function deleteProduct(productId) {
   await stockRepository.deleteProduct(productId)
 }
 
-async function updateProduct(data, productId) {
-  await getProductOrFail(productId)
+async function updateProduct(data) {
+  await getProductOrFail(data.productId)
 
   await stockRepository.updateProduct(data)
 }
