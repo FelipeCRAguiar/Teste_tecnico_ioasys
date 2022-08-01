@@ -19,8 +19,9 @@ async function deleteProduct(req, res) {
 
 async function updateProduct(req, res) {
   const product = req.body
+  const { productId } = req.params
 
-  await stockService.updateProduct(product)
+  await stockService.updateProduct(product, productId)
 
   res.sendStatus(httpStatus.OK)
 }
