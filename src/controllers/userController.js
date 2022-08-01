@@ -28,7 +28,7 @@ async function hireUser(req, res) {
 async function fireUser(req, res) {
   const { userId } = req.params
 
-  await userService.fireUser(userId)
+  await userService.fireUser(parseInt(userId))
 
   res.sendStatus(httpStatus.OK)
 }

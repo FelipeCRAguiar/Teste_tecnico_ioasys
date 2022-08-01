@@ -12,8 +12,8 @@ async function createCompany(req, res) {
 async function getCompanyBalance(req, res) {
   const { companyId } = req.params
 
-  const balance = await companyService.getCompanyBalance(companyId)
-
+  const balance = await companyService.getCompanyBalance(parseInt(companyId))
+  
   res.send({ balance }).sendStatus(httpStatus.OK)
 }
 

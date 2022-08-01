@@ -12,7 +12,7 @@ async function createBranch(req, res) {
 async function getCompanyBranches(req, res) {
   const { companyId } = req.params
 
-  const branches = await branchService.getCompanyBranches(companyId)
+  const branches = await branchService.getCompanyBranches(parseInt(companyId))
 
   res.send(branches).status(httpStatus.OK)
 }
@@ -20,7 +20,7 @@ async function getCompanyBranches(req, res) {
 async function getCompanyBranchesWithProductSales(req, res) {
   const { companyId } = req.params
 
-  const branches = await branchService.getCompanyBranchesWithProductSales(companyId)
+  const branches = await branchService.getCompanyBranchesWithProductSales(parseInt(companyId))
 
   res.send(branches).status(httpStatus.OK)
 }
@@ -29,7 +29,7 @@ async function getSpecificBranchData(req, res) {
   const { branchId } = req.params
   const user = res.locals.user
 
-  const branch = await branchService.getSpecificBranchData(branchId, user.companyId)
+  const branch = await branchService.getSpecificBranchData(parseInt(branchId), user.companyId)
 
   res.send(branch).status(httpStatus.OK)
 }
@@ -37,6 +37,6 @@ async function getSpecificBranchData(req, res) {
 export default {
   createBranch,
   getCompanyBranches,
-  getCompanyBranchesWithProductSales  ,
+  getCompanyBranchesWithProductSales,
   getSpecificBranchData
 }
