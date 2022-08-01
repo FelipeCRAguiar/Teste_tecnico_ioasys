@@ -26,14 +26,13 @@ async function deleteProduct(productId) {
 async function findProductsByName(name, companyId) {
   return prisma.stock.findMany({
     where: {
-      productName: name
+      productName: name,
+      Branch: {
+        companyId: companyId
+      }
     },
     include: {
-      Branch: {
-        where: {
-          companyId: companyId
-        }
-      }
+      Branch: true
     }
   })
 }

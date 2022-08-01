@@ -1,17 +1,20 @@
 import httpStatus from 'http-status';
-import * as jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import { prisma } from '../db.js';
 import userService from '../services/userService/index.js';
+import dotenv from 'dotenv';
+dotenv.config()
 
 export async function authenticateToken(req, res, next) {
-  const authHeader = req.header('Authorization');
-  if (!authHeader) return generateUnauthorizedResponse(res);
+  const authorization = req.headers["authorization"];
+  if (!authorization) return generateUnauthorizedResponse(res);
 
-  const token = authHeader.split(' ')[1];
+  const token = authorization.replace("Bearer ", "");
   if (!token) return generateUnauthorizedResponse(res);
 
   try {
     const { userId } = jwt.verify(token, process.env.JWT_SECRET)
+
 
     const session = await prisma.sessions.findFirst({
       where: {
@@ -20,7 +23,7 @@ export async function authenticateToken(req, res, next) {
     });
     if (!session) return generateUnauthorizedResponse(res);
 
-    const user = await userService.findUserById(userId)
+    const user = await userService.findUserById(parseInt(userId))
 
     req.userId = userId;
     res.locals.user = user

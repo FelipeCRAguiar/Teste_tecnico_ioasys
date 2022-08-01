@@ -21,7 +21,7 @@ async function updateProduct(req, res) {
   const product = req.body
   const { productId } = req.params
 
-  await stockService.updateProduct(product, productId)
+  await stockService.updateProduct(product, parseInt(productId))
 
   res.sendStatus(httpStatus.OK)
 }

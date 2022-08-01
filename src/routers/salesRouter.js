@@ -6,7 +6,7 @@ import { saleSchema } from "../schemas/salesSchema.js";
 
 const salesRouter = Router()
 
-salesRouter.post('/postSales', validateSchemaMiddleware(saleSchema), authenticateToken, salesController.postSales)
+salesRouter.post('/post', validateSchemaMiddleware(saleSchema), authenticateToken, salesController.postSales)
 salesRouter.get('/getProduct/:productId', authenticateToken, salesController.getProductSales)
 
 export default salesRouter

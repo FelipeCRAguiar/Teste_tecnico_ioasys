@@ -9,7 +9,7 @@ import { updateProductStockSchema } from "../schemas/updateProductStockSchema.js
 const stockRouter = Router()
 
 stockRouter.post('/create', validateSchemaMiddleware(productSchema), authenticateToken, stockController.createProduct)
-stockRouter.patch('/update', validateSchemaMiddleware(updateProductSchema), authenticateToken, stockController.updateProduct)
+stockRouter.patch('/update/:productId', validateSchemaMiddleware(updateProductSchema), authenticateToken, stockController.updateProduct)
 stockRouter.patch('/updateStock', validateSchemaMiddleware(updateProductStockSchema), authenticateToken, stockController.updateProductStock)
 stockRouter.delete('/delete/:productId', authenticateToken, stockController.deleteProduct)
 stockRouter.get('/company/:companyId', authenticateToken, stockController.getCompanyProducts)

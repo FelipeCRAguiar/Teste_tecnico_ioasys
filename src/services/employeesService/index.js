@@ -22,7 +22,7 @@ async function getCompanyPayRoll(companyId) {
 async function payEmployees(companyId) {
   const payRoll = await getCompanyPayRoll(companyId)
 
-  const amount = payRoll._sum * -1
+  const amount = payRoll._sum.salary * -1
 
   await balanceRepository.changeBalance(companyId, amount)
 }

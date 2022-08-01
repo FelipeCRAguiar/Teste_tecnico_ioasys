@@ -42,6 +42,13 @@ async function getCompanyEmployees(companyId) {
   return prisma.users.findMany({
     where: {
       companyId: companyId
+    },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      salary: true,
+      companyId: true
     }
   })
 }

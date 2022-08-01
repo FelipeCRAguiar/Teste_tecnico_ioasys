@@ -18,7 +18,7 @@ async function deleteProduct(productId) {
 async function updateProduct(data, productId) {
   await getProductOrFail(productId)
 
-  await stockRepository.updateProduct(data)
+  await stockRepository.updateProduct(data, productId)
 }
 
 async function updateProductStock(productId, amount) {
@@ -49,6 +49,8 @@ async function getCompanyProducts(companyId) {
   await employeesService.getCompanyOrFail(companyId)
 
   const products = await stockRepository.getCompanyProducts(companyId)
+
+  return products
 }
 
 async function getBranchOrFail(branchId) {

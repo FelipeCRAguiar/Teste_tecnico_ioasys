@@ -5,16 +5,16 @@ import sessionRepository from "../../repositories/sessionRepository.js";
 import jwt from 'jsonwebtoken';
 import dotenv from "dotenv";
 import employeesService from "../employeesService/index.js";
-
 dotenv.config()
 
-async function createUser({email, password}) {
+async function createUser({email, password, name}) {
   validateDuplicateEmail(email)
 
   const hashedPassword = await bcrypt.hash(password, 10)
   await userRepository.createUser({
     email,
-    password: hashedPassword
+    password: hashedPassword,
+    name
   })
 }
 

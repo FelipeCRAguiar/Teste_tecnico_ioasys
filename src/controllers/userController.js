@@ -12,7 +12,7 @@ async function signUp(req, res) {
 async function signIn(req, res) {
   const user = req.body
 
-  const token = userService.signIn(user)
+  const token = await userService.signIn(user)
 
   res.send({ token }).status(httpStatus.OK)
 }
